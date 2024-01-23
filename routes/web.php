@@ -24,5 +24,5 @@ Route::get('/articoli', function () {
 });
 
 Route::get('/chisono', function () {
-    return view('chisono');
+    return view('chisono', ['descrizione'=> 'Sono Gabriele Lucchetti vengo da Ceccano(FR)']);
 });
