@@ -43,23 +43,32 @@
 
     <div class="container">
         <div class="row ">
-            @foreach ($articoli as $chiave => $articolo)
-                <div class="col-3">
-
-                    <div class="card" style="width: 100%; height:500px;">
-                        <img style="width: 100%;height:250px;object-fit:cover;" src={{ $articolo['immagine'] }}
-                            class="card-img-top" alt="...">
+            @if ($articoli == null)
+                <div class="col-md-12">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $articolo['titolo'] }}</h5>
-                            <p class="card-text">{{ $articolo['descrizione'] }}</p>
-                            <p class="card-text">{{ $articolo['categoria'] }}</p>
-                            <a href="{{ route('articolo', ['id' => $chiave]) }}" class="btn btn-primary">Vai
-                                all'articolo</a>
+                            <h5 class="card-title">Non ci sono articoli</h5>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @else
+                @foreach ($articoli as $chiave => $articolo)
+                    <div class="col-3">
 
+                        <div class="card" style="width: 100%; height:500px;">
+                            <img style="width: 100%;height:250px;object-fit:cover;" src={{ $articolo['immagine'] }}
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $articolo['titolo'] }}</h5>
+                                <p class="card-text">{{ $articolo['descrizione'] }}</p>
+                                <p class="card-text">{{ $articolo['categoria'] }}</p>
+                                <a href="{{ route('articolo', ['id' => $chiave]) }}" class="btn btn-primary">Vai
+                                    all'articolo</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
 
 
         </div>

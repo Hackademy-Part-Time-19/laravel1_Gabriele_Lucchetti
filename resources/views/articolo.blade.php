@@ -36,19 +36,20 @@
             </div>
         </div>
     </nav>
-    <h1>Articolo: "{{ $articolo['titolo'] }}"</h1>
+    
 
-    <div class="card" style="width: 100%; height:500px;">
-        <img style="width: 100%;height:750px;object-fit:cover;" src={{ $articolo['immagine'] }} class="card-img-top"
+    <div class="card" style="width: 100%; height:1500px;">
+      <h5 class="card-title text-center" style="font-size:44px;">{{ $articolo['titolo'] }}</h5>
+        <img style="width: 100%;height:750px;object-fit:contain;margin-top:45px" src={{ $articolo['immagine'] }} class="card-img-top"
             alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ $articolo['titolo'] }}</h5>
-            <p class="card-text">{{ $articolo['descrizione'] }}</p>
-            <p class="card-text">Categoria: {{ $articolo['categoria'] }}</p>
-            <p>Prezzo: {{ $articolo['prezzo'] }}</p>
-            <button class="btn btn-primary" style="color:white"><a href="{{ route('articoli') }}" class="link"
+        <div class="card-body mt-4 text-center">
+            
+            <p class="card-text" style="font-size:35px">Descrizione:{{ $articolo['descrizione'] }}</p>
+            <p class="card-text"  style="font-size:35px">Categoria: {{ $articolo['categoria'] }}</p>
+            <p  style="font-size:35px">Prezzo: {{ $articolo['prezzo'] }}</p>
+            <button class="btn btn-primary" style="color:white;font-size:35px"><a href="{{ route('articoli') }}" class="link"
                     style="color:white; text-decoration:none">Torna alla pagina precedente</a></button>
-            <button class="btn btn-primary" style="background-color: red">Acquista</button>
+            <button class="btn btn-primary" style="background-color: red;font-size:35px">Acquista</button>
 
         </div>
     </div>

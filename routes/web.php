@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home');
+    
+    return view('home',['titolo'=>"Il blog di Gabriele Lucchetti",'descrizione'=>"Questo blog e' la cosa meno blog che esista perche' ci sono articoli in vendita. :D"]);
 })->name('home');
 
 Route::get('/articoli', function () {
