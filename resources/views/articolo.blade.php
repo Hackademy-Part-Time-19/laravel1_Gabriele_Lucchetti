@@ -7,10 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
-    <title>Articoli</title>
+    <title>Articolo</title>
 </head>
 
 <body>
+
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
 
@@ -34,33 +36,19 @@
             </div>
         </div>
     </nav>
+    <h1>Articolo: "{{ $articolo['titolo'] }}"</h1>
 
-    <div class="text-center">
-        <h1>Articoli</h1>
-        <p>Ecco gli articoli presenti</p>
-    </div>
-
-
-    <div class="container">
-        <div class="row ">
-            @foreach ($articoli as $chiave => $articolo)
-                <div class="col-3">
-
-                    <div class="card" style="width: 100%; height:500px;">
-                        <img style="width: 100%;height:250px;object-fit:cover;" src={{ $articolo['immagine'] }}
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $articolo['titolo'] }}</h5>
-                            <p class="card-text">{{ $articolo['descrizione'] }}</p>
-                            <p class="card-text">{{ $articolo['categoria'] }}</p>
-                            <a href="{{ route('articolo', ['id' => $chiave]) }}" class="btn btn-primary">Vai
-                                all'articolo</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-
+    <div class="card" style="width: 100%; height:500px;">
+        <img style="width: 100%;height:750px;object-fit:cover;" src={{ $articolo['immagine'] }} class="card-img-top"
+            alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ $articolo['titolo'] }}</h5>
+            <p class="card-text">{{ $articolo['descrizione'] }}</p>
+            <p class="card-text">Categoria: {{ $articolo['categoria'] }}</p>
+            <p>Prezzo: {{ $articolo['prezzo'] }}</p>
+            <button class="btn btn-primary" style="color:white"><a href="{{ route('articoli') }}" class="link"
+                    style="color:white; text-decoration:none">Torna alla pagina precedente</a></button>
+            <button class="btn btn-primary" style="background-color: red">Acquista</button>
 
         </div>
     </div>
