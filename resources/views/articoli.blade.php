@@ -35,9 +35,10 @@
         </div>
     </nav>
 
-    <div class="text-center">
-        <h1>Articoli</h1>
-        <p>Ecco gli articoli presenti</p>
+    <div  style="margin-top:100px">
+        <h1 style="margin-left:20px;">{{config('app.name')}}</h1>
+        <h3 class="text-center" style="margin-top:20px;margin-bottom:20px;">Ecco gli articoli presenti</h3>
+       
     </div>
 
 

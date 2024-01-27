@@ -37,7 +37,7 @@
             </div>
         </div>
     </nav>
-    <h1>Chi sono</h1>
+    <h1 style="margin-top:100px">Chi sono</h1>
     <div>
         <p>{{ $descrizione }}</p>
     </div>

@@ -37,7 +37,7 @@
             </div>
         </div>
     </nav>
-    <h1 class="intestazione">{{$titolo}}</h1>
+    <h1 class="intestazione" style="margin-top:100px">{{config('app.name')}}</h1>
     <p>{{$descrizione}}</p>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
