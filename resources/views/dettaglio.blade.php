@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
-    <title>Articolo</title>
+    <title>Blog</title>
 </head>
 
 <body>
@@ -23,15 +23,28 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('chisono') }}">Chi sono</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('articoli') }}">Articoli</a>
+                        <a class="nav-link" href="{{ route('articoli') }}">Articoli</a>
                     </li>
-
+                    <li class="nav-item">
+                        <div class="dropdown" style="cursor:pointer;">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorie
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach ($categories as $category)
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('articles.byCategory', $category) }}">{{ $category }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -49,11 +62,12 @@
             class="card-img-top" alt="...">
         <div class="card-body mt-4 text-center">
 
-            <p class="card-text" style="font-size:35px">Descrizione:{{ $articolo['descrizione'] . ' ' . $articolo['prezzo'] }}</p>
-            <p class="card-text" style="font-size:35px">Categoria: {{ $articolo['categoria'] }}</p>
-            
+            <p class="card-text" style="font-size:35px">
+                Descrizione:{{ $articolo['descrizione'] . ' ' . $articolo['prezzo'] }}</p>
+            <p class="card-text" style="font-size:35px">Categoria: {{ $articolo['category'] }}</p>
 
-           
+
+
 
         </div>
     </div>

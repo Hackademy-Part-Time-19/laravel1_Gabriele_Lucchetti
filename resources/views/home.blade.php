@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
-    <title>Home</title>
+    <title>Blog</title>
 </head>
 
 <body>
@@ -32,13 +32,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('articoli') }}">Articoli</a>
                     </li>
-
+                    <li class="nav-item">
+                        <div class="dropdown" style="cursor:pointer;">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorie
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach ($categories as $category)
+                                    <li><a class="dropdown-item" href="{{route('articles.byCategory',['category'=>$category])}}">{{$category}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <h1 class="intestazione" style="margin-top:100px">{{config('app.name')}}</h1>
-    <p>{{$descrizione}}</p>
+    <h1 class="intestazione" style="margin-top:100px">{{ config('app.name') }}</h1>
+    <p>{{ $descrizione }}</p>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

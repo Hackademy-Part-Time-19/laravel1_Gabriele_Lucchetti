@@ -21,24 +21,37 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('chisono') }}">Chi sono</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('articoli') }}">Articoli</a>
+                        <a class="nav-link" href="{{ route('articoli') }}">Articoli</a>
                     </li>
-
+                    <li class="nav-item">
+                        <div class="dropdown" style="cursor:pointer;">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorie
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach ($categories as $category)
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('articles.byCategory', $category) }}">{{ $category }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div  style="margin-top:100px">
-        <h1 style="margin-left:20px;">{{config('app.name')}}</h1>
+    <div style="margin-top:100px">
+        <h1 style="margin-left:20px;">{{ config('app.name') }}</h1>
         <h3 class="text-center" style="margin-top:20px;margin-bottom:20px;">Ecco gli articoli presenti</h3>
-       
+
     </div>
 
 
@@ -62,8 +75,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $articolo['titolo'] }}</h5>
                                 <p class="card-text">{{ $articolo['descrizione'] }}</p>
-                                <p class="card-text">{{ $articolo['categoria'] }}</p>
-                                <a href="{{ route('articolo', ['id' => $chiave]) }}" class="btn btn-primary">Vai
+                                <p class="card-text">{{ $articolo['category'] }}</p>
+                                <a href="{{ route('articolo.show', ['id' => $chiave]) }}" class="btn btn-primary">Vai
                                     all'articolo</a>
                             </div>
                         </div>

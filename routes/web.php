@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\http\Controllers\pageController;
+use App\Http\Controllers\homePage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/',[\App\Http\Controllers\homePage::class,'homepage']) ->name('home');
+Route::get('/',[homePage::class,'homepage']) ->name('home');
 
-Route::get('/articoli', [\App\Http\Controllers\pageController::class,'index'])->name('articoli');
+Route::get('/articoli', [pageController::class,'index'])->name('articoli');
 
 Route::get('/chisono', function () {
     return view('chisono', ['descrizione' => 'Sono Gabriele Lucchetti vengo da Ceccano(FR)']);
 })->name('chisono');
 
-Route::get('/articolo/{id}',[\App\Http\Controllers\pageController::class,'show'])->name('articolo');
+Route::get('/articolo/{id}',[pageController::class,'show'])->name('articolo.show');
 
+Route::get('/articolo/categoria/{category}',[pageController::class,'byCategory'])->name('articles.byCategory');
