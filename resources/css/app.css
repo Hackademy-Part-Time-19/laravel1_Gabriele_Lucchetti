@@ -4,6 +4,10 @@
     color:rgb(157, 12, 159)
 }
 
+h2{
+    color:rgb(79, 133, 240)
+}
+
 .navbar{
     background-color: rgba(157, 12, 159,0.7)!important;
     position:fixed !important;

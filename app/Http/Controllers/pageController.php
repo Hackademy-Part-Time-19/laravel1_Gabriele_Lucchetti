@@ -14,15 +14,7 @@ class pageController extends Controller
        4=> ['titolo' => 'Gygabite RTX 3090', 'category' => "elettronica", 'descrizione' => "Potenza di rendering", 'immagine' => "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1624/innergigabyteimages/kf-img.png", 'prezzo' => "Prezzo €899,99"]
     ];
 
-    // private $categories=['telefonia','elettronica','giochi e accessori','elettronica'];
-
-    // public function __construct(){
-    //     foreach($this->articoli as $articolo){
-    //        if(!in_array($articolo['categoria'], $this->categories)){
-    //           $this->categories[] = $articolo['categoria'];
-    //       }
-    //    } 
-    // }
+    
 
 
     public function index()

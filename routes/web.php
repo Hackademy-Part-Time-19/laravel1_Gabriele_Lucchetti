@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\pageController;
 use App\Http\Controllers\homePage;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +29,7 @@ Route::get('/chisono', function () {
 Route::get('/articolo/{id}',[pageController::class,'show'])->name('articolo.show');
 
 Route::get('/articolo/categoria/{category}',[pageController::class,'byCategory'])->name('articles.byCategory');
+
+Route::get('contattaci', [ContactController::class, 'contactUs'])->name('contattaci');
+
+Route::post('contattaci/invio',[MailController::class,'sendMail'])->name('messaggio');
