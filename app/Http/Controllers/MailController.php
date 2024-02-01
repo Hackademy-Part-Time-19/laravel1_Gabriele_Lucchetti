@@ -8,16 +8,17 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function sendMail(Request $request){
+    public function sendMail(Request $request)
+    {
         $data = $request->all();
-        if($data['name']==null|| $data['email']==null|| $data['password']==null || $data['text']==null){
+        if ($data['name'] == null || $data['email'] == null || $data['password'] == null || $data['text'] == null) 
+        {
             return redirect()->back()->with('error', 'Compila tutti i campi');
-        }else{
-
+        } 
+        else 
+        {
             Mail::to('Electronicmagazine@gmail.com')->send(new MailGenerator($data['name'], $data['email'], $data['text']));
             return redirect()->back()->with('message', 'Mail inviata con successo');
         }
-        
-        
     }
 }
