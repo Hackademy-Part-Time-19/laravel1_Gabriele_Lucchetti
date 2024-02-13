@@ -19,8 +19,8 @@
                 </div>
             @else
                 @foreach ($articoli as $chiave => $articolo)
-                    <x-card :titolo="$articolo['titolo']" :descrizione="$articolo['descrizione']" 
-                    :category="$articolo['category']" :img="$articolo['immagine']" :chiave="$chiave"/>
+                    <x-card :titolo="$articolo['title']" :descrizione="$articolo['description']" 
+                    :category="$articolo['category']" :body="$articolo['body']"  :chiave="$articolo['id']"/>
 
                     
                 @endforeach

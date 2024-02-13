@@ -33,6 +33,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contattaci') }}">Contattaci</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('article.create') }}">Crea il Tuo Articolo!</a>
+                </li>
             </ul>
         </div>
     </div>

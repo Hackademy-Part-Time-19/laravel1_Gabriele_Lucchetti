@@ -2,7 +2,7 @@
 
     <div class="card" style="width: 100%; height:500px;">
         
-        <img style="width: 100%;height:250px;object-fit:cover;" src={{ $img}} class="card-img-top" alt="...">
+        <img style="width: 100%;height:250px;object-fit:cover;" src={{Storage::url($articolo['image'])}} class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ $titolo}}</h5>
             <p class="card-text">{{ $descrizione}}</p>

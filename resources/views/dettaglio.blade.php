@@ -9,13 +9,13 @@
     <div class="card" style="width: 100%; height:1500px;">
 
 
-        <h5 class="card-title text-center" style="font-size:44px;">{{ $articolo['titolo'] }}</h5>
-        <img style="width: 100%;height:750px;object-fit:contain;margin-top:45px" src={{ $articolo['immagine'] }}
+        <h5 class="card-title text-center" style="font-size:44px;">{{ $articolo['title'] }}</h5>
+        <img style="width: 100%;height:750px;object-fit:contain;margin-top:45px" src={{ Storage::url($articolo['image']) }}
             class="card-img-top" alt="...">
         <div class="card-body mt-4 text-center">
 
             <p class="card-text" style="font-size:35px">
-                Descrizione:{{ $articolo['descrizione'] . ' ' . $articolo['prezzo'] }}</p>
+                Descrizione:{{ $articolo['description']  }}</p>
             <p class="card-text" style="font-size:35px">Categoria: {{ $articolo['category'] }}</p>
 
 

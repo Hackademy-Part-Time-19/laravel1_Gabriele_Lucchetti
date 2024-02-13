@@ -33,3 +33,7 @@ Route::get('/articolo/categoria/{category}',[pageController::class,'byCategory']
 Route::get('contattaci', [ContactController::class, 'contactUs'])->name('contattaci');
 
 Route::post('contattaci/invio',[MailController::class,'sendMail'])->name('messaggio');
+
+Route::get('/article/create', [PageController::class,'create'])->name('article.create');
+
+Route::post('/article/store', [PageController::class,'store'])->name('article.store');
