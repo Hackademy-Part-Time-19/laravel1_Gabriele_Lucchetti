@@ -20,8 +20,8 @@
             @else
                 @foreach ($articoli as $chiave => $articolo)
                     <x-card :titolo="$articolo['title']" :descrizione="$articolo['description']" 
-                    :category="$articolo['category']" :body="$articolo['body']"  :chiave="$articolo['id']"/>
-
+                    :category="$articolo['category']" :body="$articolo['body']" :immagine="$articolo['image']" :chiave="$articolo['id']"/>
+               
                     
                 @endforeach
             @endif

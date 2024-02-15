@@ -10,21 +10,17 @@ class pageController extends Controller
 {
     public function store(StoreArticleRequest $request)
     {
-        // $article= new Article();
-        // $article->title ='Titolo di prova';
-        // $article->category='Elettronica';
-        // $article->description='Descrizione di prova';
-        // $article->body='Corpo del articolo';
-        // $article->save();
-
+      
         $validated = $request->validated();
+        
         $article = Article::create($validated);
-        $request->hasFile('image');
-        $request->file('image')->isValid();
-        $imageExt = $request->file('image')->extension();
-        $imagePath = $request->file('image')->storeAs('images', 'copertina_articolo' . $article['id'] . "." . $imageExt);
-        $article->image = $imagePath;
-        $article->save();
+        if ($request->hasFile('image')) {
+            $request->file('image')->isValid();
+            $imageExt = $request->file('image')->extension();
+            $imagePath = $request->file('image')->storeAs('public/images', 'copertina_articolo' . $article['id'] . "." . $imageExt);
+            $article->image = $imagePath;
+            $article->save();
+        }
 
 
         return redirect()->back()->with(['success' => 'Articolo inserito con successo!']);
@@ -46,14 +42,11 @@ class pageController extends Controller
 
     public function byCategory($category)
     {
-        $articlesByCategory = Article::where('category',$category);
-        foreach ($this->articoli as $article) {
 
-            if ($article['category'] == $category) {
-                $articlesByCategory[] = $article;
-            }
-        }
-        return view('byCategory', ['articoli' => $articlesByCategory]);
+        //PROVARE A DICHIARARE UNA VARIABILE CHE VADA A SALVARE LE CATEGORIE ES: $CATEGORY=ARTICLE::WHERE('category,$category)
+        $articlesByCategory = Article::where('category', $category)->get('category');
+        
+        return view('byCategory', ['categories' => $articlesByCategory]);
     }
 
     public function show($id)
@@ -61,4 +54,6 @@ class pageController extends Controller
 
         return view('dettaglio', ['articolo' => Article::find($id)]);
     }
+
+    
 }

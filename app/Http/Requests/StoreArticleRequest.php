@@ -26,6 +26,7 @@ class StoreArticleRequest extends FormRequest
             'category' => 'required|max:20',
             'description' =>'required|max:150',
             'body' =>'required|max:5000',
+            'image' =>'nullable'
         ];
     }
 }

@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>Dettaglio</x-slot:title>
-    <x-navbar/>
+    <x-navbar />
     <div style="margin-top:150px;margin-bottom:50px;">
         <button class="btn btn-primary" style="color:white;font-size:28px;width:500px"><a
                 href="{{ route('articoli') }}"class="link" style="color:white; text-decoration:none">Torna alla pagina

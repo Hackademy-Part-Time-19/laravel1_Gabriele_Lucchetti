@@ -48,7 +48,11 @@
             <label for="image" class="form-label">Carica un'immagine <span style="color:grey; font-size:14px; margin-left:10px;">(Opzionale)</span></label>
             <input type="file" class="form-control" name="image" id="image" value="{{ old('image') }}">
         </div>
-
+        <div class="mb-4"><span class="text-danger">
+            @error('image')
+                {{ $message }}
+            @enderror
+        </span></div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     @if (session()->has('success'))
