@@ -18,16 +18,10 @@
                     </li>
                     <li class="nav-item">
                         <div class="dropdown" style="cursor:pointer;">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="{{route('Category.index')}}" class="nav-link "  aria-expanded="false">
                                 Categorie
                             </a>
-                            <ul class="dropdown-menu">
-                                @foreach ($categories as $category)
-                                    <li><a class="dropdown-item"
-                                            href="{{ route('articles.byCategory', $category) }}">{{ $category }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
+                            
                         </div>
                     </li>
                     <li class="nav-item ">

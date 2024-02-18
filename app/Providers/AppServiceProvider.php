@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Article;
-use Illuminate\Support\ServiceProvider;
+use App\Models\Category;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,8 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $categories=Article::all();
-        view::share('categories1',$categories);
-        view::share('categories', ['telefonia','elettronica','giochi e accessori']);
+        
+        view::share(['categories'=>Category::all()]);
     }
 }

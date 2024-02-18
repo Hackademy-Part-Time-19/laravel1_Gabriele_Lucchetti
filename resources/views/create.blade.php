@@ -17,8 +17,11 @@
             </span></div>
         <div class="mb-3">
             <label for="text" class="form-label">Categoria</label>
-            <input type="text" class="form-control" name="category" id="category" value="{{ old('category') }}"
-                aria-describedby="emailHelp">
+            <select>
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-4"><span class="text-danger">
                 @error('category')

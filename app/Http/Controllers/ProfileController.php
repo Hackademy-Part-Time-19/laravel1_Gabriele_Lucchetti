@@ -14,7 +14,7 @@ class ProfileController extends Controller
 
     public function logout(Request $request):RedirectResponse
     {
-        Auth::logout();
+         Auth::logout();
 
         $request->session()->invalidate();
 

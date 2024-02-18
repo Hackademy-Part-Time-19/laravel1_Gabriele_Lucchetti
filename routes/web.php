@@ -6,6 +6,7 @@ use App\Http\Controllers\MailController;
 use App\http\Controllers\pageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +32,7 @@ Route::get('/articolo/{id}', [pageController::class, 'show'])->name('articolo.sh
 
 Route::get('/articolo/categoria/{category}', [pageController::class, 'byCategory'])->name('articles.byCategory');
 
-Route::get('/user/logout', [ProfileController::class, 'logout'])->name('logout');
+Route::post('/user/logout', [ProfileController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('contattaci', [ContactController::class, 'contactUs'])->name('contattaci');
@@ -44,3 +45,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/user/index', [ProfileController::class, 'index'])->name('profile');
 });
+
+Route::resource('Category',CategoryController::class);
